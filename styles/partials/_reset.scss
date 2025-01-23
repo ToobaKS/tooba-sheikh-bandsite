@@ -1,0 +1,21 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+html, body{
+    max-width: 100%; 
+    overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+  
+}
+
+body {
+  font-family: "Open Sans";
+  font-weight: 400;
+  margin: 0;
+}
