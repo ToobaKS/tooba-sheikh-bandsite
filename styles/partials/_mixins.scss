@@ -1,5 +1,5 @@
-@use "./partials/variables" as *;
-@use "./partials/fonts" as *;
+@use "./variables" as *;
+@use "./fonts" as *;
 
 @mixin tablet {
   @media (min-width: $tablet-breakpoint) {
@@ -11,4 +11,11 @@
   @media (min-width: $desktop-breakpoint) {
     @content;
   }
+}
+
+@mixin display-flex($flexdirection, $justify, $align) {
+  display: flex;
+  flex-direction: $flexdirection;
+  justify-content: $justify;
+  align-items: $align;
 }
