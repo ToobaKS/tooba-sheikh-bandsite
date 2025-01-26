@@ -19,3 +19,9 @@
   justify-content: $justify;
   align-items: $align;
 }
+
+@mixin font($weight, $lineheight, $size) {
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $lineheight;
+}

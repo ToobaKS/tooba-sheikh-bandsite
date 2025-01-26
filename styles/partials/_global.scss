@@ -10,6 +10,7 @@
   &__logolink {
     max-width: 120px;
     max-height: 20px;
+    padding: 16px 0px;
   }
 
   &__menu {
@@ -25,9 +26,15 @@
   &__menuitem {
     text-align: center;
     width: 100%;
-     
+    padding: 16px 0px;
+
+    &:hover {
+      border-bottom: solid $primary-color-white 3.5px;
+    }
+
     &--active {
-      border-bottom: solid $primary-color-white 2px;
+      border-bottom: solid $primary-color-white 3.5px;
+      
     }
   }
 
@@ -35,6 +42,12 @@
     color: $secondary-color-mercury;
     text-decoration: none;
     width: 100%;
+    font-size: 14px;;
+
+    &--active{
+      color: $primary-color-white;
+      font-weight: 700;
+    }
 
     &:hover {
       color: $primary-color-white;
