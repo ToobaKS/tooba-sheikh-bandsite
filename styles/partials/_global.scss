@@ -4,29 +4,58 @@
 
 //Setting up the general font size, line hieghts and weights
 
-h1, h2{
+h1 {
   @include font(24px, 32px, 700);
+
+  //same font for desktop
+  @include tablet{
+    @include font(60px, 68px, 700);
+  }
+
 }
 
-h3{
-  @include font(14px, 22px, 600);
+h2 {
+  @include font(24px, 32px, 700);
+
+  //same font for desktop
+  @include tablet{
+    @include font(36px, 44px, 700);
+  }
+
 }
 
-p{
+h3 {
+  @include font(14px, 22px, 500);
+
+  //same font for desktop
+  @include tablet{
+    @include font(24px, 32px, 500);
+  }
+}
+
+p {
   @include font(13px, 18px, 400);
+
+  //same font for desktop
+  @include tablet{  
+    @include font(14px, 22px, 400);
+  }
 }
 
-//Nav bar and Logo styling 
+//Nav bar and Logo styling
 
 .heading {
   @include display-flex(column, center, center);
   width: 100%;
   background-color: $primary-color-bandsite-black;
 
-  &__logolink {
+  &__logo {
     max-width: 120px;
     max-height: 20px;
-    padding: 16px 0px;
+  }
+
+  &__logolink {
+    padding-top: 16px;
   }
 
   &__menu {
@@ -42,7 +71,8 @@ p{
   &__menuitem {
     text-align: center;
     width: 100%;
-    padding: 16px 0px;
+    padding: 8px 0px;
+    padding-bottom: 12px;
 
     &:hover {
       border-bottom: solid $primary-color-white 3.5px;
@@ -50,7 +80,6 @@ p{
 
     &--active {
       border-bottom: solid $primary-color-white 3.5px;
-      
     }
   }
 
@@ -58,15 +87,50 @@ p{
     color: $secondary-color-mercury;
     text-decoration: none;
     width: 100%;
-    font-size: 14px;;
+    font-size: 14px;
 
-    &--active{
+    &--active {
       color: $primary-color-white;
       font-weight: 700;
     }
 
     &:hover {
       color: $primary-color-white;
+    }
+  }
+
+  @include tablet {
+    @include display-flex(row, start, center);
+
+    &__logolink {
+      padding: 24px 36px;
+    }
+
+    &__menulist {
+      width: 25%;
+      @include display-flex(row, start, center);
+    }
+
+    &__menuitem {
+      padding-right: 36px;
+      &:hover {
+        border-bottom: none;
+      }
+
+      &--active {
+        border-bottom: none;
+      }
+    }
+
+    &__menuitemlink {
+      padding: 24px 0px;
+      &--active {
+        border-bottom: solid $primary-color-white 3.5px;
+      }
+
+      &:hover {
+        border-bottom: solid $primary-color-white 3.5px;
+      }
     }
   }
 }

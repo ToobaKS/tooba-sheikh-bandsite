@@ -4,6 +4,8 @@
 @use "./partials/mixins" as *;
 @use "./partials/global" as *;
 
+//Styling the hero image
+
 .hero {
   background-image: url(../../assets/images/hero-bio.jpg);
   width: 100%;
@@ -19,11 +21,22 @@
     padding: 0px 16px;
     @include display-flex(row, start, center);
   }
+
+  @include tablet {
+    height: 500px;
+
+    &__heading {
+      padding: 0px 36px;
+    }
+  }
 }
 
+//Styling the main section
 .biography {
   width: 100%;
 }
+
+//About section
 
 .about {
   padding: 0px 16px;
@@ -53,7 +66,18 @@
   &__para {
     padding: 16px 0px;
   }
+
+  @include tablet{
+
+  }
+
+  @include desktop{
+    
+  }
+
 }
+
+//Gallery Section
 
 .gallery {
   padding: 0px 16px;
@@ -70,7 +94,17 @@
     padding-top: 16px;
     width: 100%;
   }
+
+  @include tablet{
+
+  }
+
+  @include desktop{
+    
+  }
 }
+
+//Footer
 
 .footer {
   background-color: $primary-color-bandsite-black;
@@ -111,11 +145,18 @@
     max-height: 20px;
     padding: 16px 0px;
     padding-top: 32px;
+  }
+
+  &__copyright {
+    font-size: 11px;
+    padding: 16px 0px;
+  }
+
+  @include tablet{
 
   }
 
-  &__copyright{
-    font-size: 11px;
-    padding: 16px 0px;
+  @include desktop{
+    
   }
 }
