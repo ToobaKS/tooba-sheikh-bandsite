@@ -67,14 +67,52 @@
     padding: 16px 0px;
   }
 
-  @include tablet{
+  @include tablet {
+    padding: 0px 36px;
+    @include display-flex(column, center, start);
 
+    &__heading {
+      padding-top: 48px;
+    }
+
+    &__article {
+      padding: 0px 48px;
+    }
+
+    &__image {
+      padding: 36px 0px;
+      height: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &__quote {
+      @include font(24px, 32px, 700);
+
+      &--spacedout {
+        @include font(18px, 32px, 700);
+        padding-top: 8px;
+      }
+    }
+
+    &__subheading {
+      padding-top: 36px;
+      padding-bottom: 16px; 
+    }
+
+    &__description {
+      @include display-flex(row, space-between, center);
+      gap: 36px;
+    }
+
+    &__para {
+        padding: 0px;
+      padding-bottom: 36px;
+    }
   }
 
-  @include desktop{
-    
+  @include desktop {
   }
-
 }
 
 //Gallery Section
@@ -86,21 +124,29 @@
     padding-top: 24px;
   }
 
-  &__row {
-    @include display-flex(column, center, center);
-  }
-
   &__image {
     padding-top: 16px;
     width: 100%;
   }
 
-  @include tablet{
+  @include tablet {
+    &__heading {
+      padding: 48px 0px 16px 16px;
+      padding-left: 16px;
+    }
 
+    &__row {
+      @include display-flex(row, space-between, center);
+      width: 100%;
+    }
+
+    &__image {
+      padding: 16px;
+      width: 33%;
+    }
   }
 
-  @include desktop{
-    
+  @include desktop {
   }
 }
 
@@ -152,11 +198,9 @@
     padding: 16px 0px;
   }
 
-  @include tablet{
-
+  @include tablet {
   }
 
-  @include desktop{
-    
+  @include desktop {
   }
 }
