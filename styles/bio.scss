@@ -29,6 +29,12 @@
       padding: 0rem 2.25rem;
     }
   }
+
+  @include desktop {
+    &__heading {
+      padding: 0rem 10rem;
+    }
+  }
 }
 
 //Styling the main section
@@ -112,6 +118,7 @@
   }
 
   @include desktop {
+    @include desktop-positioning;
   }
 }
 
@@ -147,6 +154,13 @@
   }
 
   @include desktop {
+    &__heading {
+      @include desktop-positioning;
+    }
+
+    &__row {
+      @include desktop-positioning;
+    }
   }
 }
 
@@ -237,8 +251,8 @@
 
     &__sitelogo {
       position: absolute;
-      top: .625rem;
-      right:1.875rem;
+      top: 0.625rem;
+      right: 1.875rem;
     }
 
     &__copyright {
@@ -249,5 +263,28 @@
   }
 
   @include desktop {
+    &__social {
+      @include desktop-positioning;
+    }
+
+    &__main {
+      @include display-flex(row, start, center);
+      @include desktop-positioning;
+    }
+
+    &__contact {
+      padding-right: 3.75rem;
+    }
+
+    &__copyright {
+      @include desktop-positioning;
+    }
+
+    &__sitelogo {
+      @include desktop-positioning;
+      position: absolute;
+      top: 0.625rem;
+      right: 6.25rem;
+    }
   }
 }
