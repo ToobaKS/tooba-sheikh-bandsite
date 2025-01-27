@@ -20,7 +20,7 @@
   align-items: $align;
 }
 
-@mixin font($weight, $lineheight, $size) {
+@mixin font($size, $lineheight, $weight) {
   font-weight: $weight;
   font-size: $size;
   line-height: $lineheight;

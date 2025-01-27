@@ -2,6 +2,22 @@
 @use "./fonts" as *;
 @use "./mixins" as *;
 
+//Setting up the general font size, line hieghts and weights
+
+h1, h2{
+  @include font(24px, 32px, 700);
+}
+
+h3{
+  @include font(14px, 22px, 600);
+}
+
+p{
+  @include font(13px, 18px, 400);
+}
+
+//Nav bar and Logo styling 
+
 .heading {
   @include display-flex(column, center, center);
   width: 100%;

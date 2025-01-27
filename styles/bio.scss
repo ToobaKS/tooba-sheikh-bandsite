@@ -10,7 +10,6 @@
   height: 220px;
   background-position: center;
   background-size: cover;
-  
 
   &__heading {
     background-color: rgba(50, 50, 50, 0.5);
@@ -18,25 +17,57 @@
     height: inherit;
     color: $primary-color-white;
     padding: 0px 16px;
-    @include font(700, 32px, 24px);
     @include display-flex(row, start, center);
-
   }
 }
 
 .biography {
-  padding: 0px 16px;
   width: 100%;
 }
 
 .about {
+  padding: 0px 16px;
+  &__heading {
+    padding-top: 24px;
+  }
+
   &__image {
+    padding: 16px 0px;
     width: 100%;
+  }
+
+  &__quote {
+    line-height: 22px;
+    font-weight: 700;
+
+    &--spacedout {
+      line-height: 32px;
+    }
+  }
+
+  &__subheading {
+    padding-top: 16px;
+    font-weight: 500;
+  }
+
+  &__para {
+    padding: 16px 0px;
   }
 }
 
 .gallery {
+  padding: 0px 16px;
+  background-color: $secondary-color-alabaster;
+  &__heading {
+    padding-top: 24px;
+  }
+
+  &__row {
+    @include display-flex(column, center, center);
+  }
+
   &__image {
+    padding-top: 16px;
     width: 100%;
   }
 }
@@ -44,14 +75,47 @@
 .footer {
   background-color: $primary-color-bandsite-black;
   @include display-flex(column, center, start);
-  padding: 0px 16px;
+  margin-top: 16px;
+  padding: 16px 16px;
   color: $secondary-color-alabaster;
 
-  &__heading{
+  &__heading {
     color: $primary-color-white;
   }
 
-  &__contact{
+  &__logo {
     padding-top: 16px;
+    padding-right: 32px;
+  }
+
+  &__contact {
+    padding-top: 16px;
+  }
+
+  &__subheading {
+    color: $primary-color-white;
+  }
+
+  &__location {
+    padding: 16px 0px;
+  }
+
+  &__email {
+    text-decoration: none;
+    color: $secondary-color-alabaster;
+    @include font(13px, 18px, 400);
+  }
+
+  &__sitelogo {
+    max-width: 120px;
+    max-height: 20px;
+    padding: 16px 0px;
+    padding-top: 32px;
+
+  }
+
+  &__copyright{
+    font-size: 11px;
+    padding: 16px 0px;
   }
 }
