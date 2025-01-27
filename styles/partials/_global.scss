@@ -5,40 +5,40 @@
 //Setting up the general font size, line hieghts and weights
 
 h1 {
-  @include font(24px, 32px, 700);
+  @include font(1.5rem, 2rem, 700);
 
   //same font for desktop
   @include tablet{
-    @include font(60px, 68px, 700);
+    @include font(3.75rem, 4.25rem, 700);
   }
 
 }
 
 h2 {
-  @include font(24px, 32px, 700);
+  @include font(1.5rem, 2rem, 700);
 
   //same font for desktop
   @include tablet{
-    @include font(36px, 44px, 700);
+    @include font(2.25rem, 2.75rem, 700);
   }
 
 }
 
 h3 {
-  @include font(14px, 22px, 500);
+  @include font(.875rem, 1.375rem, 500);
 
   //same font for desktop
   @include tablet{
-    @include font(24px, 32px, 500);
+    @include font(1.5rem, 2rem, 500);
   }
 }
 
 p {
-  @include font(13px, 18px, 400);
+  @include font(.8125rem, 1.125rem, 400);
 
   //same font for desktop
   @include tablet{  
-    @include font(14px, 22px, 400);
+    @include font(.875rem, 1.375rem, 400);
   }
 }
 
@@ -50,12 +50,12 @@ p {
   background-color: $primary-color-bandsite-black;
 
   &__logo {
-    max-width: 120px;
-    max-height: 20px;
+    max-width: 7.5rem;
+    max-height: 1.25rem;
   }
 
   &__logolink {
-    padding-top: 16px;
+    padding-top: 1rem;
   }
 
   &__menu {
@@ -71,15 +71,15 @@ p {
   &__menuitem {
     text-align: center;
     width: 100%;
-    padding: 8px 0px;
-    padding-bottom: 12px;
+    padding: .5rem 0rem;
+    padding-bottom: .75rem;
 
     &:hover {
-      border-bottom: solid $primary-color-white 3.5px;
+      border-bottom: solid $primary-color-white .2188rem;
     }
 
     &--active {
-      border-bottom: solid $primary-color-white 3.5px;
+      border-bottom: solid $primary-color-white .2188rem;
     }
   }
 
@@ -87,7 +87,7 @@ p {
     color: $secondary-color-mercury;
     text-decoration: none;
     width: 100%;
-    font-size: 14px;
+    font-size: .875rem;
 
     &--active {
       color: $primary-color-white;
@@ -103,7 +103,7 @@ p {
     @include display-flex(row, start, center);
 
     &__logolink {
-      padding: 24px 36px;
+      padding: 1.5rem 2.25rem;
     }
 
     &__menulist {
@@ -112,7 +112,7 @@ p {
     }
 
     &__menuitem {
-      padding-right: 36px;
+      padding-right: 2.25rem;
       &:hover {
         border-bottom: none;
       }
@@ -123,13 +123,13 @@ p {
     }
 
     &__menuitemlink {
-      padding: 24px 0px;
+      padding: 1.5rem 0rem;
       &--active {
-        border-bottom: solid $primary-color-white 3.5px;
+        border-bottom: solid $primary-color-white .2188rem;
       }
 
       &:hover {
-        border-bottom: solid $primary-color-white 3.5px;
+        border-bottom: solid $primary-color-white .2188rem;
       }
     }
   }
