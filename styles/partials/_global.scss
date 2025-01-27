@@ -1,0 +1,151 @@
+@use "./variables" as *;
+@use "./fonts" as *;
+@use "./mixins" as *;
+
+//Setting up the general font size, line hieghts and weights
+
+h1 {
+  @include font(1.5rem, 2rem, 700);
+
+  //same font for desktop
+  @include tablet {
+    @include font(3.75rem, 4.25rem, 700);
+  }
+}
+
+h2 {
+  @include font(1.5rem, 2rem, 700);
+
+  //same font for desktop
+  @include tablet {
+    @include font(2.25rem, 2.75rem, 700);
+  }
+}
+
+h3 {
+  @include font(0.875rem, 1.375rem, 500);
+
+  //same font for desktop
+  @include tablet {
+    @include font(1.5rem, 2rem, 500);
+  }
+}
+
+p {
+  @include font(0.8125rem, 1.125rem, 400);
+
+  //same font for desktop
+  @include tablet {
+    @include font(0.875rem, 1.375rem, 400);
+  }
+}
+
+//body styling(only for desktop)
+body {
+  @include desktop {
+    width: 100%;
+    @include display-flex(column, center, space-between);
+  }
+}
+
+//Nav bar and Logo styling
+
+.heading {
+  @include display-flex(column, center, center);
+  width: 100%;
+  background-color: $primary-color-bandsite-black;
+
+  &__logo {
+    max-width: 7.5rem;
+    max-height: 1.25rem;
+  }
+
+  &__logolink {
+    padding-top: 1rem;
+  }
+
+  &__menu {
+    width: 100%;
+  }
+
+  &__menulist {
+    @include display-flex(row, space-around, center);
+    width: 100%;
+    list-style-type: none;
+  }
+
+  &__menuitem {
+    text-align: center;
+    width: 100%;
+    padding: 0.5rem 0rem;
+    padding-bottom: 0.75rem;
+
+    &:hover {
+      border-bottom: solid $primary-color-white 0.2188rem;
+    }
+
+    &--active {
+      border-bottom: solid $primary-color-white 0.2188rem;
+    }
+  }
+
+  &__menuitemlink {
+    color: $secondary-color-mercury;
+    text-decoration: none;
+    width: 100%;
+    font-size: 0.875rem;
+
+    &--active {
+      color: $primary-color-white;
+      font-weight: 700;
+    }
+
+    &:hover {
+      color: $primary-color-white;
+    }
+  }
+
+  @include tablet {
+    @include display-flex(row, start, center);
+
+    &__logolink {
+      padding: 1.5rem 2.25rem;
+    }
+
+    &__menulist {
+      width: 25%;
+      @include display-flex(row, start, center);
+    }
+
+    &__menuitem {
+      padding-right: 2.25rem;
+      &:hover {
+        border-bottom: none;
+      }
+
+      &--active {
+        border-bottom: none;
+      }
+    }
+
+    &__menuitemlink {
+      padding: 1.5rem 0rem;
+      &--active {
+        border-bottom: solid $primary-color-white 0.2188rem;
+      }
+
+      &:hover {
+        border-bottom: solid $primary-color-white 0.2188rem;
+      }
+    }
+  }
+
+  @include desktop {
+    &__logolink {
+      margin-left: auto;
+    }
+    &__menu {
+      @include desktop-positioning;
+    }
+  }
+}
