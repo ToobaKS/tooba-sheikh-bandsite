@@ -2,7 +2,7 @@
 @use "./fonts" as *;
 @use "./mixins" as *;
 
-//Setting up the general font size, line hieghts and weights
+//Setting up the general font color, size, line heights and weights
 
 h1 {
   @include font(1.5rem, 2rem, 700);
@@ -15,6 +15,7 @@ h1 {
 
 h2 {
   @include font(1.5rem, 2rem, 700);
+  color: $primary-color-bandsite-black;
 
   //same font for desktop
   @include tablet {
@@ -24,6 +25,7 @@ h2 {
 
 h3 {
   @include font(0.875rem, 1.375rem, 500);
+  color: $primary-color-bandsite-black;
 
   //same font for desktop
   @include tablet {
@@ -33,6 +35,7 @@ h3 {
 
 p {
   @include font(0.8125rem, 1.125rem, 400);
+  color: $primary-color-bandsite-black;
 
   //same font for desktop
   @include tablet {
@@ -150,7 +153,6 @@ body {
   }
 }
 
-
 //Footer
 
 .footer {
@@ -162,6 +164,10 @@ body {
 
   &__heading {
     color: $primary-color-white;
+  }
+
+  &__link {
+    text-decoration: none;
   }
 
   &__logo {
@@ -178,6 +184,7 @@ body {
   }
 
   &__location {
+    color: $secondary-color-alabaster;
     padding: 1rem 0rem;
   }
 

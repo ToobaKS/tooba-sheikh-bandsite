@@ -4,13 +4,14 @@
 @use "./partials/mixins" as *;
 @use "./partials/global" as *;
 
+//Hero Section
 
-//hero
-.hero{
-  @include hero-section('../../assets/images/hero-bio.jpg');
+.hero {
+  @include hero-section("../../assets/images/hero-bio.jpg");
 }
 
 //Styling the main section
+
 .biography {
   width: 100%;
 }
