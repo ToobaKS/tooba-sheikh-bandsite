@@ -34,38 +34,3 @@
   margin-left: auto;
   margin-right: auto;
 }
-
-//Hero Section mixin
-@mixin hero-section($srclink){
-    background-image: url($srclink);
-    width: 100%;
-    height: 13.75rem;
-    background-position: center;
-    background-size: cover;
-  
-    &__heading {
-      background-color: rgba(50, 50, 50, 0.5);
-      width: 100%;
-      height: inherit;
-      color: $primary-color-white;
-      padding: 0rem 1rem;
-      @include display-flex(row, start, center);
-    }
-  
-    @include tablet {
-      height: 31.25rem;
-  
-      &__heading {
-        padding: 0rem 2.25rem;
-      }
-    }
-  
-    @include desktop {
-      height: 50.25rem;
-  
-      &__heading {
-        padding: 0rem 10rem;
-      }
-    }
-  
-}

@@ -47,7 +47,7 @@ p {
 body {
   @include desktop {
     width: 100%;
-    @include display-flex(column, center, space-between);
+    @include display-flex(column, center, stretch);
   }
 }
 
@@ -121,6 +121,7 @@ body {
     }
 
     &__menuitem {
+      width: auto;
       padding-right: 2.25rem;
       &:hover {
         border-bottom: none;
@@ -148,7 +149,41 @@ body {
       margin-left: auto;
     }
     &__menu {
-      @include desktop-positioning;
+      width: 80%;
+      margin-right: auto;
+    }
+  }
+}
+
+//Hero
+
+.hero {
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+
+  &__background {
+    background-color: rgba(50, 50, 50, 0.5);
+    width: 100%;
+    height: inherit;
+    @include display-flex(column, center, start);
+  }
+
+  &__heading {
+    width: 100%;
+    color: $primary-color-white;
+    padding: 0rem 1rem;
+  }
+
+  @include tablet {
+    &__heading {
+      padding: 0rem 2.25rem;
+    }
+  }
+
+  @include desktop {
+    &__heading {
+      padding: 0rem 10rem;
     }
   }
 }
@@ -198,12 +233,13 @@ body {
     max-width: 7.5rem;
     max-height: 1.25rem;
     padding: 1rem 0rem;
-    padding-top: 2rem;
+    padding-top: 2.5rem;
   }
 
   &__copyright {
     font-size: 0.6875rem;
     padding: 1rem 0rem;
+    color: $secondary-color-alabaster;
   }
 
   @include tablet {

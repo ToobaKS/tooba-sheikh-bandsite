@@ -7,7 +7,16 @@
 //Hero Section
 
 .hero {
-  @include hero-section("../../assets/images/hero-bio.jpg");
+  background-image: url("../../assets/images/hero-bio.jpg");
+  height: 12rem;
+
+  @include tablet {
+    height: 31.25rem;
+  }
+
+  @include desktop {
+    height: 50.25rem;
+  }
 }
 
 //Styling the main section
@@ -93,6 +102,10 @@
 
   @include desktop {
     @include desktop-positioning;
+
+    .about__article {
+      padding: 0rem 5rem;
+    }
   }
 }
 

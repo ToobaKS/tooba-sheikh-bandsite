@@ -4,7 +4,138 @@
 @use "./partials/mixins" as *;
 @use "./partials/global" as *;
 
-//hero
+//Hero Section
+
 .hero {
-  @include hero-section("../assets/images/hero-shows.jpg");
+  background-image: url("../assets/images/hero-shows.jpg");
+  height: 19rem;
+
+  &__subheading {
+    width: 100%;
+    color: $primary-color-white;
+    padding: 0rem 1rem;
+    padding-bottom: 24px;
+  }
+
+  &__music {
+    margin-top: 24px;
+    padding: 0rem 1rem;
+    width: 100%;
+    height: 6.75rem;
+  }
+
+  @include tablet {
+    height: 31.25rem;
+    &__subheading {
+      padding: 0rem 2.25rem;
+      padding-bottom: 36px;
+    }
+
+    &__music {
+      margin-top: 24px;
+      padding: 0rem 2.25rem;
+      width: 100%;
+      height: 6.75rem;
+    }
+  }
+
+  @include desktop {
+    height: 50.25rem;
+    &__subheading {
+      padding: 0rem 10rem;
+      padding-bottom: 36px;
+    }
+
+    &__music {
+      margin-top: 24px;
+      padding: 0rem 1rem;
+      width: 100%;
+      height: 6.75rem;
+    }
+  }
+}
+
+// .hero {
+//   background-image: url("../assets/images/hero-shows.jpg");
+//   width: 100%;
+//   height: 19rem;
+//   background-position: center;
+//   background-size: cover;
+
+//   &__background {
+//     background-color: rgba(50, 50, 50, 0.5);
+//     width: 100%;
+//     height: inherit;
+//     @include display-flex(column, center, start);
+//   }
+
+//   &__subheading {
+//     width: 100%;
+//     color: $primary-color-white;
+//     padding: 0rem 1rem;
+//     padding-bottom: 24px;
+//   }
+
+//   &__heading {
+//     width: 100%;
+//     color: $primary-color-white;
+//     padding: 0rem 1rem;
+//   }
+
+//   &__music {
+//     margin-top: 24px;
+//     padding: 0rem 1rem;
+//     width: 100%;
+//     height: 6.25rem;
+//   }
+
+//   @include tablet {
+//     height: 31.25rem;
+
+//     &__subheading {
+//       padding: 0rem 2.25rem;
+//       padding-bottom: 36px;
+//     }
+
+//     &__heading {
+//       padding: 0rem 2.25rem;
+//     }
+//   }
+
+//   @include desktop {
+//     height: 50.25rem;
+
+//     &__subheading {
+//       padding: 0rem 10rem;
+//       padding-bottom: 36px;
+//     }
+
+//     &__heading {
+//       padding: 0rem 10rem;
+//     }
+//   }
+// }
+
+// Shows Section Styling
+
+.shows {
+  padding: 0rem 1rem;
+
+  &__heading {
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+  }
+
+  @include tablet {
+    &__heading {
+      padding: 3rem 0rem 1rem 1rem;
+      padding-left: 1rem;
+    }
+  }
+
+  @include desktop {
+    &__heading {
+      @include desktop-positioning;
+    }
+  }
 }
