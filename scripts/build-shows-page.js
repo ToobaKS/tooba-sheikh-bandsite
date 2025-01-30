@@ -5,7 +5,7 @@ const shows = [
     location: "San Francisco, CA",
   },
   {
-    date: "Tues Sept 17 2024",
+    date: "Tue Sept 17 2024",
     venue: "Pier 3 East",
     location: "San Francisco, CA",
   },
@@ -34,6 +34,8 @@ const shows = [
 let showEl = document.querySelector(".shows__listing");
 console.log(showEl);
 
+
+// for each object in the array shows
 for (const showObj of shows) {
   //creating a div that will contain a single row
   let show = document.createElement("div");
@@ -41,36 +43,40 @@ for (const showObj of shows) {
 
   //creating the elements for date, venue, location and thier titles
   let showDate = document.createElement("p");
-  let showDateInfo = document.createElement("p");
+  let showDateData = document.createElement("p");
   let showVenue = document.createElement("p");
-  let showVenueInfo = document.createElement("p");
+  let showVenueData = document.createElement("p");
   let showLocation = document.createElement("p");
-  let showLocationInfo = document.createElement("p");
+  let showLocationData = document.createElement("p");
+  let button = document.createElement("button");
 
   //Adding classes to the created elements
   showDate.classList.add("shows__title");
-  showDateInfo.classList.add("shows__info");
-  showDateInfo.classList.add("shows__info--bold");
+  showDateData.classList.add("shows__data");
+  showDateData.classList.add("shows__data--bold");
   showVenue.classList.add("shows__title");
-  showVenueInfo.classList.add("shows__info");
+  showVenueData.classList.add("shows__data");
   showLocation.classList.add("shows__title");
-  showLocationInfo.classList.add("shows__info");
+  showLocationData.classList.add("shows__data");
+  button.classList.add("shows__submit");
 
   //Adding text to the created elements 
-  showDate.innerHTML = "Date";
-  showDateInfo.innerHTML = showObj.date;
-  showVenue.innerHTML = "Venue";
-  showVenueInfo.innerHTML = showObj.venue;
-  showLocation.innerHTML = "Location";
-  showLocationInfo.innerHTML = showObj.location;
+  showDate.innerHTML = "DATE";
+  showDateData.innerHTML = showObj.date;
+  showVenue.innerHTML = "VENUE";
+  showVenueData.innerHTML = showObj.venue;
+  showLocation.innerHTML = "LOCATION";
+  showLocationData.innerHTML = showObj.location;
+  button.innerHTML = "BUY TICKETS";
 
   //Appending all the elements to thier parent elements
   show.append(showDate);
-  show.append(showDateInfo);
+  show.append(showDateData);
   show.append(showVenue);
-  show.append(showVenueInfo);
+  show.append(showVenueData);
   show.append(showLocation);
-  show.append(showLocationInfo);
+  show.append(showLocationData);
+  show.append(button);
 
   showEl.append(show);
 }

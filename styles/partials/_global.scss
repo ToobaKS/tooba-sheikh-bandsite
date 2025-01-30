@@ -43,7 +43,8 @@ p {
   }
 }
 
-//body styling(only for desktop)
+//Body styling(only for desktop)
+
 body {
   @include desktop {
     width: 100%;

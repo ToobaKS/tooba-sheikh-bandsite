@@ -54,76 +54,42 @@
     }
   }
 }
-
-// .hero {
-//   background-image: url("../assets/images/hero-shows.jpg");
-//   width: 100%;
-//   height: 19rem;
-//   background-position: center;
-//   background-size: cover;
-
-//   &__background {
-//     background-color: rgba(50, 50, 50, 0.5);
-//     width: 100%;
-//     height: inherit;
-//     @include display-flex(column, center, start);
-//   }
-
-//   &__subheading {
-//     width: 100%;
-//     color: $primary-color-white;
-//     padding: 0rem 1rem;
-//     padding-bottom: 24px;
-//   }
-
-//   &__heading {
-//     width: 100%;
-//     color: $primary-color-white;
-//     padding: 0rem 1rem;
-//   }
-
-//   &__music {
-//     margin-top: 24px;
-//     padding: 0rem 1rem;
-//     width: 100%;
-//     height: 6.25rem;
-//   }
-
-//   @include tablet {
-//     height: 31.25rem;
-
-//     &__subheading {
-//       padding: 0rem 2.25rem;
-//       padding-bottom: 36px;
-//     }
-
-//     &__heading {
-//       padding: 0rem 2.25rem;
-//     }
-//   }
-
-//   @include desktop {
-//     height: 50.25rem;
-
-//     &__subheading {
-//       padding: 0rem 10rem;
-//       padding-bottom: 36px;
-//     }
-
-//     &__heading {
-//       padding: 0rem 10rem;
-//     }
-//   }
-// }
-
 // Shows Section Styling
 
 .shows {
-  padding: 0rem 1rem;
-
   &__heading {
-    padding-top: 1.5rem;
-    padding-bottom: 1rem;
+    padding: 1.5rem 1rem 1rem;
+  }
+
+  &__show {
+    padding: 0rem 1rem 1rem;
+    margin-bottom: 1rem;
+    border-bottom: solid $secondary-color-mercury 0.0625rem;
+  }
+
+  &__title {
+    padding-bottom: 3px;
+    color: $primary-color-silver;
+    @include font(10px, 20px, 700);
+  }
+
+  &__data {
+    padding-bottom: 0.75rem;
+    font-weight: 500;
+    &--bold {
+      font-weight: 700;
+    }
+  }
+
+  &__submit {
+    margin-top: 4px;
+    border-radius: 4px;
+    border: none;
+    height: 40px;
+    width: 100%;
+    background-color: $primary-color-bandsite-black;
+    color: $primary-color-white;
+    @include font(0.95rem, 1.25rem, 700);
   }
 
   @include tablet {
