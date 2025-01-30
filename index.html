@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/bio.css" />
+    <script src="./scripts/index-page.js" defer></script>
     <title>BANDSITE</title>
   </head>
   <body>
@@ -139,15 +140,29 @@
       </section>
       <section class="comments">
         <h2 class="comment__heading">Join the Conversation</h2>
-        <div class="comments__newcomment">
+        <div class="comments__comment">
           <div class="comments__profile">
-            <img class="comments__profileimg" src="./assets/images/Mohan-muruge.jpg" alt="">
+            <img
+              class="comments__profileimg"
+              src="./assets/images/Mohan-muruge.jpg"
+              alt=""
+            />
           </div>
-          <form class="comments__form" action="">
+          <form id="commentsForm" class="comments__form" action="">
             <label class="comments__inputlabel" for="">NAME</label>
-            <input class="comments__input" name="name" type="text" placeholder="Enter your name">
-            <label class="comments__inputlabel"  for="">COMMENT</label>
-            <input class="comments__input comment__input--large" name="name" type="text" placeholder="Add a new comment">
+            <input
+              class="comments__input"
+              name="name"
+              type="text"
+              placeholder="Enter your name"
+            />
+            <label class="comments__inputlabel" for="">COMMENT</label>
+            <input
+              class="comments__input comment__input--large"
+              name="comment"
+              type="text"
+              placeholder="Add a new comment"
+            />
             <button class="comments__submit">COMMENT</button>
           </form>
         </div>

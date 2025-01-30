@@ -34,7 +34,6 @@ const shows = [
 let showEl = document.querySelector(".shows__listing");
 console.log(showEl);
 
-
 // for each object in the array shows
 for (const showObj of shows) {
   //creating a div that will contain a single row
@@ -60,14 +59,14 @@ for (const showObj of shows) {
   showLocationData.classList.add("shows__data");
   button.classList.add("shows__submit");
 
-  //Adding text to the created elements 
-  showDate.innerHTML = "DATE";
-  showDateData.innerHTML = showObj.date;
-  showVenue.innerHTML = "VENUE";
-  showVenueData.innerHTML = showObj.venue;
-  showLocation.innerHTML = "LOCATION";
-  showLocationData.innerHTML = showObj.location;
-  button.innerHTML = "BUY TICKETS";
+  //Adding text to the created elements
+  showDate.textContent = "DATE";
+  showDateData.textContent = showObj.date;
+  showVenue.textContent = "VENUE";
+  showVenueData.textContent = showObj.venue;
+  showLocation.textContent = "LOCATION";
+  showLocationData.textContent = showObj.location;
+  button.textContent = "BUY TICKETS";
 
   //Appending all the elements to thier parent elements
   show.append(showDate);
