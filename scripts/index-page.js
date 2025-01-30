@@ -32,6 +32,22 @@ for (const commentObj of comments) {
   populateComment(userName, userComment, date);
 }
 
+//For adding new comments using event listener
+
+let form = document.querySelector(".comments__form");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let userName = e.target.name.value;
+  let comment = e.target.comment.value;
+  let date = new Date();
+
+  console.log(userName);
+  console.log(comment);
+
+  populateComment(userName, comment, date);
+});
+
 
 /**
  * 
