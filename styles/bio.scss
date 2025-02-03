@@ -166,7 +166,6 @@
     flex-direction: row;
     padding-bottom: 16px;
     border-bottom: solid $secondary-color-mercury 0.0625rem;
-    //flex-grow: 1;
   }
 
   &__form {
@@ -194,7 +193,7 @@
     @include font(14px, 20px, 400);
 
     &--large {
-      height: 100px;
+      height: 125px;
       resize: none;
     }
   }
@@ -249,5 +248,71 @@
 
   &__submit {
     margin-top: 16px;
+  }
+
+  @include tablet {
+    margin: 0px 36px;
+    margin-bottom: 24px;
+
+    &__heading {
+      padding: 3rem 0rem 1rem 0rem;
+    }
+
+    &__comment {
+      margin-left: 80px;
+      padding-bottom: 0px;
+    }
+
+    &__form {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 0;
+      width: 100%;
+    }
+
+    &__profileimg {
+      margin-top: 24px;
+      width: 48px;
+      height: 48px;
+      &--image {
+        margin-top: 42px;
+      }
+    }
+
+    &__inputlabel {
+      color: $primary-color-silver;
+      @include font(12px, 20px, 700);
+    }
+
+    &__submit {
+      width: 25%;
+      align-self: flex-end;
+      margin: 24px 0px;
+    }
+
+    &__userinfo {
+      margin-top: 24px;
+    }
+
+    &__commentPara {
+      padding-bottom: 18px;
+    }
+  }
+
+  @include desktop {
+    &__heading {
+      @include desktop-positioning;
+    }
+
+    &__comment {
+      width: 50%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    &__comment-list {
+      width: 40%;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 }
