@@ -113,6 +113,7 @@
 
 .gallery {
   padding: 0rem 1rem;
+  padding-bottom: 8px;
   background-color: $secondary-color-alabaster;
   &__heading {
     padding-top: 1.5rem;
@@ -148,5 +149,105 @@
     &__row {
       @include desktop-positioning;
     }
+  }
+}
+
+//Styling the comment section
+
+.comments {
+  margin: 0px 16px;
+
+  &__heading {
+    padding-top: 16px;
+  }
+
+  &__comment {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 16px;
+    border-bottom: solid $secondary-color-mercury 0.0625rem;
+    //flex-grow: 1;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  &__inputlabel {
+    padding-top: 16px;
+    padding-bottom: 4px;
+    color: $primary-color-silver;
+    @include font(10px, 20px, 700);
+  }
+
+  &__input {
+    border-radius: 4px;
+    min-height: 36px;
+    padding: 12px;
+    border-color: $secondary-color-mercury;
+    border-width: 1px;
+    border-style: solid;
+    color: $primary-color-bandsite-black;
+    font-family: Nunito Sans;
+    @include font(14px, 20px, 400);
+
+    &--large {
+      height: 100px;
+      resize: none;
+    }
+  }
+
+  ::placeholder {
+    color: $primary-color-bandsite-black;
+  }
+
+  &__profile {
+    padding-right: 16px;
+    height: inherit;
+  }
+
+  &__profileimg {
+    margin-top: 16px;
+    background-color: $secondary-color-mercury;
+    background-size: 100%;
+    width: 36px;
+    height: 36px;
+    border: 0;
+    border-color: $secondary-color-mercury;
+    border-radius: 50%;
+    &--image {
+      background-image: url("../assets/images/Mohan-muruge.jpg");
+      background-size: cover;
+      margin-top: 32px;
+    }
+  }
+
+  &__commentinfo {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  &__userinfo {
+    margin-top: 16px;
+    padding-right: 2px;
+    padding-bottom: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__name {
+    font-weight: 700;
+  }
+
+  &__date {
+    color: $primary-color-silver;
+  }
+
+  &__submit {
+    margin-top: 16px;
   }
 }

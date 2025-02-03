@@ -23,7 +23,6 @@ const comments = [
 renderComments();
 
 //Adding new comments using event listener
-
 let form = document.querySelector(".comments__form");
 
 form.addEventListener("submit", (e) => {
@@ -76,14 +75,14 @@ function populateComment(commentObj, commentSection) {
 
   //creating a div that will contain the name, date and comment
   let commentInfo = document.createElement("div");
-  commentInfo.classList.add("comments__commentInfo");
+  commentInfo.classList.add("comments__commentinfo");
 
   //creating a div that will contain the name and the date
   let userInfo = document.createElement("div");
   userInfo.classList.add("comments__userinfo");
 
   //creating the profile picture element
-  let profileImage = document.createElement("img");
+  let profileImage = document.createElement("div");
   profileImage.classList.add("comments__profileimg");
 
   //creating the name element

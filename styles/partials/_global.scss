@@ -43,6 +43,22 @@ p {
   }
 }
 
+//Global button Styling
+button {
+  border-radius: 4px;
+  border: none;
+  height: 40px;
+  width: 100%;
+  background-color: $primary-color-bandsite-black;
+  color: $primary-color-white;
+  @include font(0.95rem, 1.25rem, 700);
+
+  &:hover {
+    background-color: $secondary-color-bandsite-darkblack;
+    color: $primary-color-white;
+  }
+}
+
 //Body styling(only for desktop)
 
 body {

@@ -139,14 +139,11 @@
         </div>
       </section>
       <section class="comments">
-        <h2 class="comment__heading">Join the Conversation</h2>
+        <h2 class="comments__heading">Join the Conversation</h2>
         <div class="comments__comment">
           <div class="comments__profile">
-            <img
-              class="comments__profileimg"
-              src="./assets/images/Mohan-muruge.jpg"
-              alt=""
-            />
+            <div class="comments__profileimg comments__profileimg--image">
+            </div>
           </div>
           <form id="commentsForm" class="comments__form" action="">
             <label class="comments__inputlabel" for="">NAME</label>
@@ -157,18 +154,16 @@
               placeholder="Enter your name"
             />
             <label class="comments__inputlabel" for="">COMMENT</label>
-            <input
-              class="comments__input comment__input--large"
+            <textarea
+              class="comments__input comments__input--large"
               name="comment"
               type="text"
               placeholder="Add a new comment"
-            />
+            ></textarea>
             <button class="comments__submit">COMMENT</button>
           </form>
         </div>
-        <div class="comments__comments-list">
-
-        </div>
+        <div class="comments__comments-list"></div>
       </section>
     </main>
     <footer class="footer">
