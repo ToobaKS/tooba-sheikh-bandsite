@@ -54,6 +54,7 @@
     }
   }
 }
+
 // Shows Section Styling
 
 .shows {
@@ -62,9 +63,11 @@
   }
 
   &__show {
-    padding: 0rem 1rem 1rem;
-    margin-bottom: 1rem;
+    padding: 1rem 1rem 1rem;
     border-bottom: solid $secondary-color-mercury 0.0625rem;
+    &:hover {
+      background-color: $secondary-color-alabaster;
+    }
   }
 
   &__title {

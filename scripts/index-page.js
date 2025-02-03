@@ -1,3 +1,4 @@
+//array holding the comments as objects
 const comments = [
   {
     name: "Isaac Tadesse",
@@ -19,47 +20,52 @@ const comments = [
   },
 ];
 
-//Getting the parent div from the html document
-let commentSection = document.querySelector(".comments__oldcomments");
+renderComments();
 
-//For populating the old comments
-
-for (const commentObj of comments) {
-  let userName = commentObj.name;
-  let date = commentObj.date;
-  let userComment = commentObj.comment;
-
-  populateComment(userName, userComment, date);
-}
-
-//For adding new comments using event listener
+//Adding new comments using event listener
 
 let form = document.querySelector(".comments__form");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  let userName = e.target.name.value;
-  let comment = e.target.comment.value;
-  let date = new Date();
 
-  console.log(userName);
-  console.log(comment);
+  const obj = {
+    name: e.target.name.value.trim(),
+    comment: e.target.comment.value.trim(),
+    date: new Date(),
+  };
 
-  populateComment(userName, comment, date);
+  comments.push(obj);
+  console.log(comments);
+
+  form.reset();
+
+  renderComments();
 });
 
+//Rendering the comments
+function renderComments() {
+  //Getting the parent div from the html document
+  let commentSection = document.querySelector(".comments__comments-list");
+  commentSection.innerHTML = "";
+  
+  for (const commentObj of comments) {
+    populateComment(commentObj, commentSection);
+  }
+}
 
 /**
- * 
- * This function takes in the comment data 
+ * This function takes in the comment data
  * and uses them to create HTML elements to
  * display comments
- * 
- * @param {*} userName name of the user making the comment
- * @param {*} userComment comment made by the user
- * @param {*} commentDate date of the posted comment
+ *
+ * @param {*} commentObj an object from the comments array
  */
-function populateComment(userName, userComment, commentDate) {
+function populateComment(commentObj, commentSection) {
+  const userName = commentObj.name;
+  const commentDate = commentObj.date;
+  const userComment = commentObj.comment;
+
   //creating a div for a single comment
   let comment = document.createElement("div");
   comment.classList.add("comments__comment");
@@ -95,7 +101,7 @@ function populateComment(userName, userComment, commentDate) {
   para.classList.add("comments__commentPara");
   para.textContent = userComment;
 
-  //Appending the lements to thier parent element
+  //Appending the elements to thier parent element
   commentSection.prepend(comment);
 
   comment.append(profile);

@@ -39,6 +39,14 @@ for (const showObj of shows) {
   //creating a div that will contain a single row
   let show = document.createElement("div");
   show.classList.add("shows__show");
+  
+  // show.addEventListener();
+
+  //add click event show item
+  //have a variable stored outside for last clicked item
+  //last show clicked item should be null
+  //in the click event
+  //upadate the show class list of the show element
 
   //creating the elements for date, venue, location and thier titles
   let showDate = document.createElement("p");
