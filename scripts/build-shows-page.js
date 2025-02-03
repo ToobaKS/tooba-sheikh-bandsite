@@ -32,6 +32,7 @@ const shows = [
 ];
 
 let showEl = document.querySelector(".shows__listing");
+createTitles();
 
 // for each object in the array shows
 for (const showObj of shows) {
@@ -80,7 +81,7 @@ for (const showObj of shows) {
 }
 
 //Setting up the event listener for the click effect
-showEl.addEventListener("click", (e) => {  
+showEl.addEventListener("click", (e) => {
   // get the closest .list__item, even if a child of it is clicked...
   const el = e.target.closest(".shows__show");
   console.log(el);
@@ -101,3 +102,36 @@ showEl.addEventListener("click", (e) => {
   // ...add the 'list-item--active' class to the clicked on  element
   el.classList.add(activeClass);
 });
+
+//titles for the tablet and desktop screen
+function createTitles() {
+  //creating a div that will contain a title row
+  let show = document.createElement("div");
+  show.classList.add("shows__special");
+
+  //creating the title elements for date, venue, location
+  let showDate = document.createElement("p");
+  let showVenue = document.createElement("p");
+  let showLocation = document.createElement("p");
+  let button = document.createElement("button");
+
+  //Adding classes to the created elements
+  showDate.classList.add("shows__title-visible");
+  showVenue.classList.add("shows__title-visible");
+  showLocation.classList.add("shows__title-visible");
+  button.classList.add("shows__submit");
+  button.classList.add("shows__submit--invisible");
+
+  //Adding text to the created elements
+  showDate.textContent = "DATE";
+  showVenue.textContent = "VENUE";
+  showLocation.textContent = "LOCATION";
+  button.textContent = "invisible";
+  //Appending all the elements to thier parent elements
+  show.append(showDate);
+  show.append(showVenue);
+  show.append(showLocation);
+  show.append(button);
+
+  showEl.append(show);
+}

@@ -113,7 +113,7 @@
 
 .gallery {
   padding: 0rem 1rem;
-  padding-bottom: 8px;
+  padding-bottom: 0.5rem;
   background-color: $secondary-color-alabaster;
   &__heading {
     padding-top: 1.5rem;
@@ -155,16 +155,16 @@
 //Styling the comment section
 
 .comments {
-  margin: 0px 16px;
+  margin: 0rem 1rem;
 
   &__heading {
-    padding-top: 16px;
+    padding-top: 1rem;
   }
 
   &__comment {
     display: flex;
     flex-direction: row;
-    padding-bottom: 16px;
+    padding-bottom: 1rem;
     border-bottom: solid $secondary-color-mercury 0.0625rem;
   }
 
@@ -175,25 +175,25 @@
   }
 
   &__inputlabel {
-    padding-top: 16px;
-    padding-bottom: 4px;
+    padding-top: 1rem;
+    padding-bottom: 0.25rem;
     color: $primary-color-silver;
-    @include font(10px, 20px, 700);
+    @include font(0.625rem, 1.25rem, 700);
   }
 
   &__input {
-    border-radius: 4px;
-    min-height: 36px;
-    padding: 12px;
+    border-radius: 0.25rem;
+    min-height: 2.25rem;
+    padding: 0.75rem;
     border-color: $secondary-color-mercury;
-    border-width: 1px;
+    border-width: 0.0625rem;
     border-style: solid;
     color: $primary-color-bandsite-black;
     font-family: Nunito Sans;
-    @include font(14px, 20px, 400);
+    @include font(0.875rem, 1.25rem, 400);
 
     &--large {
-      height: 125px;
+      height: 7.8125rem;
       resize: none;
     }
   }
@@ -203,23 +203,23 @@
   }
 
   &__profile {
-    padding-right: 16px;
+    padding-right: 1rem;
     height: inherit;
   }
 
   &__profileimg {
-    margin-top: 16px;
+    margin-top: 1rem;
     background-color: $secondary-color-mercury;
     background-size: 100%;
-    width: 36px;
-    height: 36px;
+    width: 2.25rem;
+    height: 2.25rem;
     border: 0;
     border-color: $secondary-color-mercury;
     border-radius: 50%;
     &--image {
       background-image: url("../assets/images/Mohan-muruge.jpg");
       background-size: cover;
-      margin-top: 32px;
+      margin-top: 2rem;
     }
   }
 
@@ -230,9 +230,9 @@
   }
 
   &__userinfo {
-    margin-top: 16px;
-    padding-right: 2px;
-    padding-bottom: 8px;
+    margin-top: 1rem;
+    padding-right: 0.125rem;
+    padding-bottom: 0.5rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -247,20 +247,20 @@
   }
 
   &__submit {
-    margin-top: 16px;
+    margin-top: 1rem;
   }
 
   @include tablet {
-    margin: 0px 36px;
-    margin-bottom: 24px;
+    margin: 0rem 2.25rem;
+    margin-bottom: 1.5rem;
 
     &__heading {
       padding: 3rem 0rem 1rem 0rem;
     }
 
     &__comment {
-      margin-left: 80px;
-      padding-bottom: 0px;
+      margin-left: 5rem;
+      padding-bottom: 0rem;
     }
 
     &__form {
@@ -271,31 +271,31 @@
     }
 
     &__profileimg {
-      margin-top: 24px;
-      width: 48px;
-      height: 48px;
+      margin-top: 1.5rem;
+      width: 3rem;
+      height: 3rem;
       &--image {
-        margin-top: 42px;
+        margin-top: 2.625rem;
       }
     }
 
     &__inputlabel {
       color: $primary-color-silver;
-      @include font(12px, 20px, 700);
+      @include font(0.75rem, 1.25rem, 700);
     }
 
     &__submit {
       width: 25%;
       align-self: flex-end;
-      margin: 24px 0px;
+      margin: 1.5rem 0rem;
     }
 
     &__userinfo {
-      margin-top: 24px;
+      margin-top: 1.5rem;
     }
 
     &__commentPara {
-      padding-bottom: 18px;
+      padding-bottom: 1.125rem;
     }
   }
 
