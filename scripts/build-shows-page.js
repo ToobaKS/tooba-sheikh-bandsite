@@ -32,21 +32,12 @@ const shows = [
 ];
 
 let showEl = document.querySelector(".shows__listing");
-console.log(showEl);
 
 // for each object in the array shows
 for (const showObj of shows) {
   //creating a div that will contain a single row
   let show = document.createElement("div");
   show.classList.add("shows__show");
-  
-  // show.addEventListener();
-
-  //add click event show item
-  //have a variable stored outside for last clicked item
-  //last show clicked item should be null
-  //in the click event
-  //upadate the show class list of the show element
 
   //creating the elements for date, venue, location and thier titles
   let showDate = document.createElement("p");
@@ -87,3 +78,26 @@ for (const showObj of shows) {
 
   showEl.append(show);
 }
+
+//Setting up the event listener for the click effect
+showEl.addEventListener("click", (e) => {  
+  // get the closest .list__item, even if a child of it is clicked...
+  const el = e.target.closest(".shows__show");
+  console.log(el);
+
+  // ... if none return, don't do anything else
+  if (!el) {
+    return;
+  }
+
+  const activeClass = "shows__show--active";
+
+  const active = showEl.querySelector(`.${activeClass}`);
+
+  if (active) {
+    active.classList.remove(activeClass);
+  }
+
+  // ...add the 'list-item--active' class to the clicked on  element
+  el.classList.add(activeClass);
+});
