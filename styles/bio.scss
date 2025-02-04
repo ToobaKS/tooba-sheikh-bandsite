@@ -185,9 +185,8 @@
     border-radius: 0.25rem;
     min-height: 2.25rem;
     padding: 0.75rem;
-    border-color: $secondary-color-mercury;
-    border-width: 0.0625rem;
-    border-style: solid;
+    border-style: none;
+    border: 0.0625rem solid $secondary-color-mercury;
     color: $primary-color-bandsite-black;
     font-family: Nunito Sans;
     @include font(0.875rem, 1.25rem, 400);
@@ -195,6 +194,11 @@
     &--large {
       height: 7.8125rem;
       resize: none;
+    }
+
+    &:focus{
+      outline: none;
+      border: 0.0625rem solid $primary-color-bandsite-black;
     }
   }
 

@@ -1,26 +1,20 @@
-//array holding the comments as objects
-const comments = [
-  {
-    name: "Isaac Tadesse",
-    comment:
-      "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
-    date: new Date("10/20/2023"),
-  },
-  {
-    name: "Christina Cabrera",
-    comment:
-      "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
-    date: new Date("10/28/2023"),
-  },
-  {
-    name: "Victor Pinto",
-    comment:
-      "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
-    date: new Date("11/02/2023"),
-  },
-];
+const API_KEY = "07c2e1f3-da04-4e9c-8536-0c8614581212";
+let bandSiteApi = new BandSiteApi(API_KEY);
 
-renderComments();
+let comments = new Array();
+get();
+
+async function get() {
+  try {
+    comments = await bandSiteApi.getComments();
+    console.log(comments);
+    renderComments();
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+
 
 //Adding new comments using event listener
 let form = document.querySelector(".comments__form");
@@ -31,7 +25,7 @@ form.addEventListener("submit", (e) => {
   const obj = {
     name: e.target.name.value.trim(),
     comment: e.target.comment.value.trim(),
-    date: new Date(),
+    timestamp: (new Date()).getTime(),
   };
 
   comments.push(obj);
@@ -44,11 +38,13 @@ form.addEventListener("submit", (e) => {
 
 //Rendering the comments
 function renderComments() {
+  console.log("hello");
   //Getting the parent div from the html document
   let commentSection = document.querySelector(".comments__comments-list");
   commentSection.innerHTML = "";
-  
+
   for (const commentObj of comments) {
+    console.log(commentObj);
     populateComment(commentObj, commentSection);
   }
 }
@@ -62,7 +58,7 @@ function renderComments() {
  */
 function populateComment(commentObj, commentSection) {
   const userName = commentObj.name;
-  const commentDate = commentObj.date;
+  const commentDate = formatDate(commentObj.timestamp);
   const userComment = commentObj.comment;
 
   //creating a div for a single comment
@@ -93,7 +89,7 @@ function populateComment(commentObj, commentSection) {
   //creating the date element
   let date = document.createElement("p");
   date.classList.add("comments__date");
-  date.textContent = commentDate.toLocaleDateString();
+  date.textContent = commentDate;
 
   //creating the comment paragraph element
   let para = document.createElement("p");
@@ -113,4 +109,31 @@ function populateComment(commentObj, commentSection) {
 
   userInfo.append(name);
   userInfo.append(date);
+}
+
+function formatDate(timestamp){
+  let commentDate = new Date(timestamp);
+  let currentDate = new Date();
+
+  let ms = currentDate - commentDate;
+  let sec = ms/1000;
+  let min = sec/60;
+  let hours = min/60;
+  let days = hours/24;
+  let months = days/30;
+
+  if (sec < 60) {
+    return `${Math.floor(sec)} seconds ago`;
+  } else if (min < 60) {
+    return `${Math.floor(min)} minutes ago`;
+  } else if (hours < 24) {
+    return `${Math.floor(hours)} hours ago`;
+  } else if (days < 30) {
+    return `${Math.floor(days)} days ago`;
+  } else if (months < 12) {
+    return `${Math.floor(days/30)} months ago`;
+  }else{
+    return commentDate.toLocaleDateString();
+  }
+
 }
