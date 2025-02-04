@@ -14,8 +14,6 @@ async function get() {
   }
 }
 
-
-
 //Adding new comments using event listener
 let form = document.querySelector(".comments__form");
 
@@ -111,6 +109,12 @@ function populateComment(commentObj, commentSection) {
   userInfo.append(date);
 }
 
+
+/**
+ * 
+ * @param {*} timestamp 
+ * @returns the month
+ */
 function formatDate(timestamp){
   let commentDate = new Date(timestamp);
   let currentDate = new Date();

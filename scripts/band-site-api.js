@@ -12,9 +12,9 @@ class BandSiteApi{
 
     async getComments(){
         const url = (`${this.baseURL}/comments/?api_key=${this.apiKey}`);
-        const response = await axios.get(url);
-        //sort this by newest to oldest
-        return response.data;
+        let response = await axios.get(url);
+        response = (response.data).reverse();
+        return response;
     }
 
     async getShows(){
