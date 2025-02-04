@@ -1,14 +1,23 @@
 const API_KEY = "07c2e1f3-da04-4e9c-8536-0c8614581212";
 let bandSiteApi = new BandSiteApi(API_KEY);
 
-let comments = new Array();
+
 get();
 
 async function get() {
   try {
-    comments = await bandSiteApi.getComments();
+    let comments = await bandSiteApi.getComments();
     console.log(comments);
-    renderComments();
+    renderComments(comments);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function post(commentObj) {
+  try {
+    await bandSiteApi.postComment(commentObj);
+    get();
   } catch (error) {
     console.error(error);
   }
@@ -23,19 +32,14 @@ form.addEventListener("submit", (e) => {
   const obj = {
     name: e.target.name.value.trim(),
     comment: e.target.comment.value.trim(),
-    timestamp: (new Date()).getTime(),
   };
 
-  comments.push(obj);
-  console.log(comments);
-
+  post(obj);
   form.reset();
-
-  renderComments();
 });
 
 //Rendering the comments
-function renderComments() {
+function renderComments(comments) {
   console.log("hello");
   //Getting the parent div from the html document
   let commentSection = document.querySelector(".comments__comments-list");

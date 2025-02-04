@@ -5,21 +5,21 @@ class BandSiteApi{
     }
 
     async postComment(comment){
-        const url = (`${this.baseURL}/comments/?api_key=${this.apiKey}`);
-        const response = await axios.post(url, comment);
+        const request = (`${this.baseURL}/comments/?api_key=${this.apiKey}`);
+        const response = await axios.post(request, comment);
         return response;
     }
 
     async getComments(){
-        const url = (`${this.baseURL}/comments/?api_key=${this.apiKey}`);
-        let response = await axios.get(url);
-        response = (response.data).reverse();
+        const request = (`${this.baseURL}/comments/?api_key=${this.apiKey}`);
+        let response = (await axios.get(request)).data;
+        response.sort((a, b) => new Date(b.date) - new Date(a.date));
         return response;
     }
 
     async getShows(){
-        const url = (`${this.baseURL}/showdates/?api_key=${this.apiKey}`);
-        const response = await axios.get(url);
+        const request = (`${this.baseURL}/showdates/?api_key=${this.apiKey}`);
+        const response = await axios.get(request);
         return response.data;
     }
 }

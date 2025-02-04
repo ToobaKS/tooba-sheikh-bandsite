@@ -1,14 +1,13 @@
 const API_KEY = "007c2e1f3-da04-4e9c-8536-0c8614581212";
 let bandSiteApi = new BandSiteApi(API_KEY);
 
-let shows = new Array();
-get();
+getShowsArray();
 
-async function get() {
+async function getShowsArray() {
   try {
-    shows = await bandSiteApi.getShows();
+    let shows = await bandSiteApi.getShows();
     console.log(shows);
-    populateShows();
+    populateShows(shows);
   } catch (error) {
     console.error(error);
   }
@@ -16,7 +15,7 @@ async function get() {
 
 let showEl = document.querySelector(".shows__listing");
 
-function populateShows() {
+function populateShows(shows) {
   createTitles();
   // for each object in the array shows
   for (const showObj of shows) {
