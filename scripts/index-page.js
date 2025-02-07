@@ -1,32 +1,15 @@
+import {BandSiteApi} from "./band-site-api.js";
+
 const API_KEY = "07c2e1f3-da04-4e9c-8536-0c8614581212";
 let bandSiteApi = new BandSiteApi(API_KEY);
 
-
-get();
-
-async function get() {
-  try {
-    let comments = await bandSiteApi.getComments();
-    console.log(comments);
-    renderComments(comments);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-async function post(commentObj) {
-  try {
-    await bandSiteApi.postComment(commentObj);
-    get();
-  } catch (error) {
-    console.error(error);
-  }
-}
+let comments = await bandSiteApi.getComments();
+renderComments();
 
 //Adding new comments using event listener
 let form = document.querySelector(".comments__form");
 
-form.addEventListener("submit", (e) => {
+form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const obj = {
@@ -34,19 +17,35 @@ form.addEventListener("submit", (e) => {
     comment: e.target.comment.value.trim(),
   };
 
-  post(obj);
+  await bandSiteApi.postComment(obj);
+  comments = await bandSiteApi.getComments();
+  renderComments();
   form.reset();
 });
 
+async function likeC(commentObj) {
+  try {
+    await bandSiteApi.likeComment(commentObj.id);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function deleteC(commentObj) {
+  try {
+    await bandSiteApi.deleteComment(commentObj.id);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 //Rendering the comments
-function renderComments(comments) {
-  console.log("hello");
+function renderComments() {
   //Getting the parent div from the html document
   let commentSection = document.querySelector(".comments__comments-list");
   commentSection.innerHTML = "";
 
   for (const commentObj of comments) {
-    console.log(commentObj);
     populateComment(commentObj, commentSection);
   }
 }
@@ -98,6 +97,44 @@ function populateComment(commentObj, commentSection) {
   para.classList.add("comments__commentPara");
   para.textContent = userComment;
 
+  //creating div that will have the like button and the delete button
+  let functionContainer = document.createElement("div");
+  functionContainer.classList.add("comments__functions");
+
+  //creating the like button
+  let like = document.createElement("button");
+  like.classList.add("comments__like");
+
+  //creating the image inside the like button
+  let likeImage = document.createElement("img");
+  likeImage.classList.add("comments__img");
+  likeImage.classList.add("like");
+  likeImage.src = "../assets/icons/icon-like.svg";
+  like.addEventListener("click", async () => {
+    try {
+      await likeC(commentObj);
+    } catch (error) {
+      console.log(error);
+    }
+  });
+
+  //creating the like button
+  let deleteButton = document.createElement("button");
+  deleteButton.classList.add("comments__delete");
+
+  //creating the image inside the like button
+  let deleteImage = document.createElement("img");
+  deleteImage.classList.add("comments__img");
+  deleteImage.classList.add("delete");
+  deleteImage.src = "../assets/icons/icon-delete.svg";
+  deleteImage.addEventListener("click", async () => {
+    try {
+      await deleteC(commentObj);
+    } catch (error) {
+      console.log(error);
+    }
+  });
+
   //Appending the elements to thier parent element
   commentSection.prepend(comment);
 
@@ -108,27 +145,33 @@ function populateComment(commentObj, commentSection) {
 
   commentInfo.append(userInfo);
   commentInfo.append(para);
+  commentInfo.append(functionContainer);
 
   userInfo.append(name);
   userInfo.append(date);
+
+  functionContainer.append(like);
+  like.append(likeImage);
+
+  functionContainer.append(deleteButton);
+  deleteButton.append(deleteImage);
 }
 
-
 /**
- * 
- * @param {*} timestamp 
+ *
+ * @param {*} timestamp
  * @returns the month
  */
-function formatDate(timestamp){
+function formatDate(timestamp) {
   let commentDate = new Date(timestamp);
   let currentDate = new Date();
 
   let ms = currentDate - commentDate;
-  let sec = ms/1000;
-  let min = sec/60;
-  let hours = min/60;
-  let days = hours/24;
-  let months = days/30;
+  let sec = ms / 1000;
+  let min = sec / 60;
+  let hours = min / 60;
+  let days = hours / 24;
+  let months = days / 30;
 
   if (sec < 60) {
     return `${Math.floor(sec)} seconds ago`;
@@ -139,9 +182,8 @@ function formatDate(timestamp){
   } else if (days < 30) {
     return `${Math.floor(days)} days ago`;
   } else if (months < 12) {
-    return `${Math.floor(days/30)} months ago`;
-  }else{
+    return `${Math.floor(days / 30)} months ago`;
+  } else {
     return commentDate.toLocaleDateString();
   }
-
 }
