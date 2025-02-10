@@ -3,20 +3,12 @@ import { BandSiteApi } from "./band-site-api.js";
 const API_KEY = "007c2e1f3-da04-4e9c-8536-0c8614581212";
 let bandSiteApi = new BandSiteApi(API_KEY);
 
-getShowsArray();
-
-async function getShowsArray() {
-  try {
-    let shows = await bandSiteApi.getShows();
-    populateShows(shows);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
 let showEl = document.querySelector(".shows__listing");
 
-function populateShows(shows) {
+let shows = await bandSiteApi.getShows();
+populateShows();
+
+function populateShows() {
   createTitles();
   // for each object in the array shows
   for (const showObj of shows) {
