@@ -1,4 +1,4 @@
-import {BandSiteApi} from "./band-site-api.js";
+import { BandSiteApi } from "./band-site-api.js";
 
 const API_KEY = "007c2e1f3-da04-4e9c-8536-0c8614581212";
 let bandSiteApi = new BandSiteApi(API_KEY);
@@ -24,42 +24,19 @@ function populateShows(shows) {
     let show = document.createElement("div");
     show.classList.add("shows__show");
 
-    //creating the elements for date, venue, location and thier titles
-    let showDate = document.createElement("p");
-    let showDateData = document.createElement("p");
-    let showVenue = document.createElement("p");
-    let showVenueData = document.createElement("p");
-    let showLocation = document.createElement("p");
-    let showLocationData = document.createElement("p");
-    let button = document.createElement("button");
-
-    //Adding classes to the created elements
-    showDate.classList.add("shows__title");
-    showDateData.classList.add("shows__data");
-    showDateData.classList.add("shows__data--bold");
-    showVenue.classList.add("shows__title");
-    showVenueData.classList.add("shows__data");
-    showLocation.classList.add("shows__title");
-    showLocationData.classList.add("shows__data");
-    button.classList.add("shows__submit");
-
-    //Adding text to the created elements
-    showDate.textContent = "DATE";
-    showDateData.textContent = new Date(showObj.date).toDateString();
-    showVenue.textContent = "VENUE";
-    showVenueData.textContent = showObj.place;
-    showLocation.textContent = "LOCATION";
-    showLocationData.textContent = showObj.location;
-    button.textContent = "BUY TICKETS";
-
-    //Appending all the elements to thier parent elements
-    show.append(showDate);
-    show.append(showDateData);
-    show.append(showVenue);
-    show.append(showVenueData);
-    show.append(showLocation);
-    show.append(showLocationData);
-    show.append(button);
+    show.append(createElement("p", "shows__title", "DATE"));
+    let el = createElement(
+      "p",
+      "shows__data",
+      new Date(showObj.date).toDateString()
+    );
+    el.classList.add("shows__data--bold");
+    show.append(el);
+    show.append(createElement("p", "shows__title", "VENUE"));
+    show.append(createElement("p", "shows__data", showObj.place));
+    show.append(createElement("p", "shows__title", "LOCATION"));
+    show.append(createElement("p", "shows__data", showObj.location));
+    show.append(createElement("button", "shows__submit", "BUY TICKETS"));
 
     showEl.append(show);
   }
@@ -76,13 +53,11 @@ showEl.addEventListener("click", (e) => {
   }
 
   const activeClass = "shows__show--active";
-
   const active = showEl.querySelector(`.${activeClass}`);
 
   if (active) {
     active.classList.remove(activeClass);
   }
-
   // ...add the 'list-item--active' class to the clicked on  element
   el.classList.add(activeClass);
 });
@@ -93,29 +68,26 @@ function createTitles() {
   let show = document.createElement("div");
   show.classList.add("shows__special");
 
-  //creating the title elements for date, venue, location
-  let showDate = document.createElement("p");
-  let showVenue = document.createElement("p");
-  let showLocation = document.createElement("p");
-  let button = document.createElement("button");
-
-  //Adding classes to the created elements
-  showDate.classList.add("shows__title-visible");
-  showVenue.classList.add("shows__title-visible");
-  showLocation.classList.add("shows__title-visible");
-  button.classList.add("shows__submit");
-  button.classList.add("shows__submit--invisible");
-
-  //Adding text to the created elements
-  showDate.textContent = "DATE";
-  showVenue.textContent = "VENUE";
-  showLocation.textContent = "LOCATION";
-  button.textContent = "invisible";
-  //Appending all the elements to thier parent elements
-  show.append(showDate);
-  show.append(showVenue);
-  show.append(showLocation);
-  show.append(button);
+  show.append(createElement("p", "shows__title-visible", "DATE"));
+  show.append(createElement("p", "shows__title-visible", "VENUE"));
+  show.append(createElement("p", "shows__title-visible", "LOCATION"));
+  let el = createElement("p", "shows__submit--invisible", "invisible");
+  el.classList.add("shows__submit");
+  show.append(el);
 
   showEl.append(show);
+}
+
+/**
+ *
+ * @param {*} elementType type of element to be created
+ * @param {*} className the class name for the element
+ * @param {*} textContent the content for element
+ * @returns
+ */
+function createElement(elementType, className, textContent) {
+  let element = document.createElement(elementType);
+  element.classList.add(className);
+  element.textContent = textContent;
+  return element;
 }

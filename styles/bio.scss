@@ -261,14 +261,14 @@
 
   &__functions{
     @include display-flex(row, start, center);
-    padding-top: 8px;
+    padding-top: .5rem;
   }
 
   &__like {
     @include display-flex(row, start, center);
     background-color: transparent;
-    padding: 0px;
-    width: 25px;
+    padding: 0rem;
+    width: 1.5625rem;
     margin-right: .9375rem;
     &:hover{
       background-color: transparent;
@@ -277,15 +277,15 @@
 
   &__likes-number{
     @include font(0.9rem, .625rem, 700);
-    height: 2px;
+    height: .125rem;
     margin-right: .5rem;
   }
 
   &__delete {
     @include display-flex(row, start, center);
     background-color: transparent;
-    width: 25px;
-    padding: 0px;
+    width: 1.5625rem;
+    padding: 0rem;
 
     &:hover{
       background-color: transparent;
@@ -337,7 +337,7 @@
     }
 
     &__functions{
-      padding-bottom: 8px
+      padding-bottom: .5rem
     }
   }
 

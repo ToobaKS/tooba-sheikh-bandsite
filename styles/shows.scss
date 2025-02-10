@@ -123,8 +123,10 @@
     }
 
     &__title-visible {
-      width: 50%;
+      width: 9.375rem;
+      text-align: start;
       color: $primary-color-silver;
+      padding-left: 1rem;
       @include font(0.75rem, 1.25rem, 700);
     }
 
@@ -137,6 +139,8 @@
     }
 
     &__data {
+      padding-left: 1rem;
+      width: 9.375rem;
       padding-bottom: 0rem;
     }
 
