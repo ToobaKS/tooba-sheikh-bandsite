@@ -57,134 +57,130 @@ async function deleteC(commentObj) {
   }
 }
 
-//Rendering the comments
+/**
+ * This function creates HTML elements to
+ * display comments
+ *
+ */
 function renderComments() {
   //Getting the parent div from the html document
   let commentSection = document.querySelector(".comments__comments-list");
   commentSection.innerHTML = "";
 
   for (const commentObj of comments) {
-    populateComment(commentObj, commentSection);
+
+    //creating a div for a single comment
+    let comment = createElement("div", "comments__comment", "");
+
+    //creating a div for the profile image
+    let profile = createElement("div", "comments__profile", "");
+
+    //creating a div that will contain the name, date and comment
+    let commentInfo = createElement("div", "comments__commentinfo", "");
+
+    //creating a div that will contain the name and the date
+    let userInfo = createElement("div", "comments__userinfo", "");
+
+    //creating the profile picture element
+    let profileImage = createElement("div", "comments__profileimg", "");
+
+    //creating the name element
+    let name = createElement("p", "comments__name", commentObj.name);
+
+    //creating the date element
+    let date = createElement(
+      "p",
+      "comments__date",
+      formatDate(commentObj.timestamp)
+    );
+
+    //creating the comment paragraph element
+    let para = createElement("p", "comments__commentPara", commentObj.comment);
+
+    //creating div that will have the like button and the delete button
+    let functionContainer = createElement("div", "comments__functions", "");
+
+    //creating the like button
+    let like = createElement("button", "comments__like", "");
+
+    //creating the image inside the like button
+    let likeImage = document.createElement("img");
+    likeImage.classList.add("comments__img");
+    likeImage.classList.add("like");
+    likeImage.src = "../assets/icons/icon-like.svg";
+    like.addEventListener("click", async () => {
+      try {
+        await likeC(commentObj);
+      } catch (error) {
+        console.error(error);
+      }
+    });
+
+    //creating the like ecounter beside the like button
+    let likeCounter = createElement(
+      "p",
+      "comments__likes-number",
+      commentObj.likes
+    );
+
+    //creating the delete button
+    let deleteButton = createElement("button", "comments__delete", "");
+
+    //creating the image inside the delete button
+    let deleteImage = document.createElement("img");
+    deleteImage.classList.add("comments__img");
+    deleteImage.classList.add("delete");
+    deleteImage.src = "../assets/icons/icon-delete.svg";
+    deleteImage.addEventListener("click", async () => {
+      try {
+        await deleteC(commentObj);
+      } catch (error) {
+        console.error(error);
+      }
+    });
+
+    //Appending the elements to thier parent element
+    commentSection.prepend(comment);
+
+    comment.append(profile);
+    comment.append(commentInfo);
+
+    profile.append(profileImage);
+
+    commentInfo.append(userInfo);
+    commentInfo.append(para);
+    commentInfo.append(functionContainer);
+
+    userInfo.append(name);
+    userInfo.append(date);
+
+    functionContainer.append(likeCounter);
+    functionContainer.append(like);
+    like.append(likeImage);
+
+    functionContainer.append(deleteButton);
+    deleteButton.append(deleteImage);
   }
 }
 
 /**
- * This function takes in the comment data
- * and uses them to create HTML elements to
- * display comments
  *
- * @param {*} commentObj an object from the comments array
+ * @param {*} elementType type of element to be created
+ * @param {*} className the class name for the element
+ * @param {*} textContent the content for element
+ * @returns
  */
-function populateComment(commentObj, commentSection) {
-  const userName = commentObj.name;
-  const commentDate = formatDate(commentObj.timestamp);
-  const userComment = commentObj.comment;
-
-  //creating a div for a single comment
-  let comment = document.createElement("div");
-  comment.classList.add("comments__comment");
-
-  //creating a div for the profile image
-  let profile = document.createElement("div");
-  profile.classList.add("comments__profile");
-
-  //creating a div that will contain the name, date and comment
-  let commentInfo = document.createElement("div");
-  commentInfo.classList.add("comments__commentinfo");
-
-  //creating a div that will contain the name and the date
-  let userInfo = document.createElement("div");
-  userInfo.classList.add("comments__userinfo");
-
-  //creating the profile picture element
-  let profileImage = document.createElement("div");
-  profileImage.classList.add("comments__profileimg");
-
-  //creating the name element
-  let name = document.createElement("p");
-  name.classList.add("comments__name");
-  name.textContent = userName;
-
-  //creating the date element
-  let date = document.createElement("p");
-  date.classList.add("comments__date");
-  date.textContent = commentDate;
-
-  //creating the comment paragraph element
-  let para = document.createElement("p");
-  para.classList.add("comments__commentPara");
-  para.textContent = userComment;
-
-  //creating div that will have the like button and the delete button
-  let functionContainer = document.createElement("div");
-  functionContainer.classList.add("comments__functions");
-
-  //creating the like button
-  let like = document.createElement("button");
-  like.classList.add("comments__like");
-
-  //creating the image inside the like button
-  let likeImage = document.createElement("img");
-  likeImage.classList.add("comments__img");
-  likeImage.classList.add("like");
-  likeImage.src = "../assets/icons/icon-like.svg";
-  like.addEventListener("click", async () => {
-    try {
-      await likeC(commentObj);
-    } catch (error) {
-      console.error(error);
-    }
-  });
-
-  //creating the lik ecounter beside the like button
-  let likeCounter = document.createElement("p");
-  likeCounter.classList.add("comments__likes-number");
-  likeCounter.textContent = commentObj.likes;
-
-  //creating the delete button
-  let deleteButton = document.createElement("button");
-  deleteButton.classList.add("comments__delete");
-
-  //creating the image inside the delete button
-  let deleteImage = document.createElement("img");
-  deleteImage.classList.add("comments__img");
-  deleteImage.classList.add("delete");
-  deleteImage.src = "../assets/icons/icon-delete.svg";
-  deleteImage.addEventListener("click", async () => {
-    try {
-      await deleteC(commentObj);
-    } catch (error) {
-      console.error(error);
-    }
-  });
-
-  //Appending the elements to thier parent element
-  commentSection.prepend(comment);
-
-  comment.append(profile);
-  comment.append(commentInfo);
-
-  profile.append(profileImage);
-
-  commentInfo.append(userInfo);
-  commentInfo.append(para);
-  commentInfo.append(functionContainer);
-
-  userInfo.append(name);
-  userInfo.append(date);
-
-  functionContainer.append(likeCounter);
-  functionContainer.append(like);
-  like.append(likeImage);
-
-  functionContainer.append(deleteButton);
-  deleteButton.append(deleteImage);
+function createElement(elementType, className, textContent) {
+  let element = document.createElement(elementType);
+  element.classList.add(className);
+  element.textContent = textContent;
+  return element;
 }
 
 /**
  *
  * @param {*} timestamp
- * @returns the month
+ * @returns the formatted output for the time
  */
 function formatDate(timestamp) {
   let commentDate = new Date(timestamp);
