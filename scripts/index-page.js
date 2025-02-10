@@ -37,6 +37,8 @@ form.addEventListener("submit", async (e) => {
   }
 });
 
+
+//function to send the likes
 async function likeC(commentObj) {
   try {
     await bandSiteApi.likeComment(commentObj.id);
@@ -47,6 +49,7 @@ async function likeC(commentObj) {
   }
 }
 
+//function to delete comment
 async function deleteC(commentObj) {
   try {
     await bandSiteApi.deleteComment(commentObj.id);
@@ -76,13 +79,13 @@ function renderComments() {
     let profile = createElement("div", "comments__profile", "");
 
     //creating a div that will contain the name, date and comment
-    let commentInfo = createElement("div", "comments__commentinfo", "");
+    let commentInfo = createElement("div", "comments__comment-info", "");
 
     //creating a div that will contain the name and the date
-    let userInfo = createElement("div", "comments__userinfo", "");
+    let userInfo = createElement("div", "comments__user-info", "");
 
     //creating the profile picture element
-    let profileImage = createElement("div", "comments__profileimg", "");
+    let profileImage = createElement("div", "comments__profile-img", "");
 
     //creating the name element
     let name = createElement("p", "comments__name", commentObj.name);
@@ -95,7 +98,7 @@ function renderComments() {
     );
 
     //creating the comment paragraph element
-    let para = createElement("p", "comments__commentPara", commentObj.comment);
+    let para = createElement("p", "comments__comment-Para", commentObj.comment);
 
     //creating div that will have the like button and the delete button
     let functionContainer = createElement("div", "comments__functions", "");

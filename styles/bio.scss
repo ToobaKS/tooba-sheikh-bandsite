@@ -115,6 +115,7 @@
   padding: 0rem 1rem;
   padding-bottom: 0.5rem;
   background-color: $secondary-color-alabaster;
+
   &__heading {
     padding-top: 1.5rem;
   }
@@ -174,7 +175,7 @@
     flex-grow: 1;
   }
 
-  &__inputlabel {
+  &__input-label {
     padding-top: 1rem;
     padding-bottom: 0.25rem;
     color: $primary-color-silver;
@@ -203,7 +204,7 @@
 
     &--error {
       outline: none;
-      border: 0.0625rem solid #D22D2D;
+      border: 0.0625rem solid #d22d2d;
     }
   }
 
@@ -216,7 +217,7 @@
     height: inherit;
   }
 
-  &__profileimg {
+  &__profile-img {
     margin-top: 1rem;
     background-color: $secondary-color-mercury;
     background-size: 100%;
@@ -232,13 +233,13 @@
     }
   }
 
-  &__commentinfo {
+  &__comment-info {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
   }
 
-  &__userinfo {
+  &__user-info {
     margin-top: 1rem;
     padding-right: 0.125rem;
     padding-bottom: 0.5rem;
@@ -259,9 +260,9 @@
     margin-top: 1rem;
   }
 
-  &__functions{
+  &__functions {
     @include display-flex(row, start, center);
-    padding-top: .5rem;
+    padding-top: 0.5rem;
   }
 
   &__like {
@@ -269,16 +270,16 @@
     background-color: transparent;
     padding: 0rem;
     width: 1.5625rem;
-    margin-right: .9375rem;
-    &:hover{
+    margin-right: 0.9375rem;
+    &:hover {
       background-color: transparent;
     }
   }
 
-  &__likes-number{
-    @include font(0.9rem, .625rem, 700);
-    height: .125rem;
-    margin-right: .5rem;
+  &__likes-number {
+    @include font(0.9rem, 0.625rem, 700);
+    height: 0.125rem;
+    margin-right: 0.5rem;
   }
 
   &__delete {
@@ -287,7 +288,7 @@
     width: 1.5625rem;
     padding: 0rem;
 
-    &:hover{
+    &:hover {
       background-color: transparent;
     }
   }
@@ -312,7 +313,7 @@
       width: 100%;
     }
 
-    &__profileimg {
+    &__profile-img {
       margin-top: 1.5rem;
       width: 3rem;
       height: 3rem;
@@ -321,7 +322,7 @@
       }
     }
 
-    &__inputlabel {
+    &__input-label {
       color: $primary-color-silver;
       @include font(0.75rem, 1.25rem, 700);
     }
@@ -332,12 +333,12 @@
       margin: 1.5rem 0rem;
     }
 
-    &__userinfo {
+    &__user-info {
       margin-top: 1.5rem;
     }
 
-    &__functions{
-      padding-bottom: .5rem
+    &__functions {
+      padding-bottom: 0.5rem;
     }
   }
 
