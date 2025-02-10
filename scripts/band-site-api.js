@@ -47,7 +47,7 @@ export class BandSiteApi {
 
   async deleteComment(id) {
     try {
-        const request = `${this.baseURL}/comments/${id}/like/?api_key=${this.apiKey}`;
+        const request = `${this.baseURL}/comments/${id}/?api_key=${this.apiKey}`;
         const response = await axios.delete(request);
         return response;
       } catch (error) {

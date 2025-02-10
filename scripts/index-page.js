@@ -26,6 +26,8 @@ form.addEventListener("submit", async (e) => {
 async function likeC(commentObj) {
   try {
     await bandSiteApi.likeComment(commentObj.id);
+    comments = await bandSiteApi.getComments();
+    renderComments();
   } catch (error) {
     console.error(error);
   }
@@ -34,6 +36,8 @@ async function likeC(commentObj) {
 async function deleteC(commentObj) {
   try {
     await bandSiteApi.deleteComment(commentObj.id);
+    comments = await bandSiteApi.getComments();
+    renderComments();
   } catch (error) {
     console.error(error);
   }
@@ -167,13 +171,15 @@ function formatDate(timestamp) {
   let currentDate = new Date();
 
   let ms = currentDate - commentDate;
-  let sec = ms / 1000;
+  let sec = Math.abs(ms) / 1000;
   let min = sec / 60;
   let hours = min / 60;
   let days = hours / 24;
   let months = days / 30;
 
-  if (sec < 60) {
+  if (sec < 59) {
+    console.log(sec);
+    console.log(Math.floor(sec));
     return `${Math.floor(sec)} seconds ago`;
   } else if (min < 60) {
     return `${Math.floor(min)} minutes ago`;
