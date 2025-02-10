@@ -8,7 +8,6 @@ getShowsArray();
 async function getShowsArray() {
   try {
     let shows = await bandSiteApi.getShows();
-    console.log(shows);
     populateShows(shows);
   } catch (error) {
     console.error(error);
@@ -70,7 +69,6 @@ function populateShows(shows) {
 showEl.addEventListener("click", (e) => {
   // get the closest .list__item, even if a child of it is clicked...
   const el = e.target.closest(".shows__show");
-  console.log(el);
 
   // ... if none return, don't do anything else
   if (!el) {

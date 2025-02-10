@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/bio.css" />
-    <script src="https://unpkg.com/axios/dist/axios.min.js"defer></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
     <script src="./scripts/index-page.js" type="module" defer></script>
     <title>BANDSITE</title>
   </head>
@@ -148,6 +148,7 @@
           <form id="commentsForm" class="comments__form" action="">
             <label class="comments__inputlabel" for="">NAME</label>
             <input
+              id="name-box"
               class="comments__input"
               name="name"
               type="text"
@@ -155,6 +156,7 @@
             />
             <label class="comments__inputlabel" for="">COMMENT</label>
             <textarea
+              id="comment-box"
               class="comments__input comments__input--large"
               name="comment"
               type="text"
